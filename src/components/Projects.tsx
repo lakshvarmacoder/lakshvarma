@@ -10,40 +10,7 @@ export default function Projects() {
 
   const PROJECTS = [
     {
-      id: "01",
-      title: "Portfolio V1",
-      category: "Frontend Architecture",
-      stack: "Next.js 14 • Tailwind • Framer Motion",
-      link: "https://github.com/lakshvarma"
-    },
-    {
-      id: "02",
-      title: "E-Commerce API",
-      category: "Backend Logic",
-      stack: "Python • FastAPI • PostgreSQL",
-      link: "https://github.com/lakshvarma"
-    },
-    {
-      id: "03",
-      title: "Neural Network Viz",
-      category: "Data Engineering",
-      stack: "C++ • Python • Tensor",
-      link: "https://github.com/lakshvarma"
-    },
-    {
-      id: "04",
-      title: "Task Master",
-      category: "Productivity Tool",
-      stack: "React • Redux • Firebase",
-      link: "https://github.com/lakshvarma"
-    },
-    {
-      id: "05",
-      title: "Crypto Dashboard",
-      category: "Real-time Analytics",
-      stack: "Next.js • WebSocket • Chart.js",
-      link: "https://github.com/lakshvarma"
-    }
+    
   ];
 
   const handleShowMore = () => {
