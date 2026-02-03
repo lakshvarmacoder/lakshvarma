@@ -9,7 +9,7 @@ export default function Projects() {
   const [visibleCount, setVisibleCount] = useState(3);
 
   const PROJECTS = [
-    {
+    
     
   ];
 
