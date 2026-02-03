@@ -5,9 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const SOCIALS = [
-    { name: "GitHub", href: "https://github.com/yourusername" },
-    { name: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
-    { name: "X (Twitter)", href: "https://x.com/yourusername" },
+    { name: "GitHub", href: "https://github.com/lakshvarmacoder" },
+    { name: "LinkedIn", href: "https://in.linkedin.com/in/laksh-varma-8b1642391" }
   ];
 
   return (
