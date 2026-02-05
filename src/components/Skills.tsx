@@ -2,50 +2,61 @@
 
 import { motion } from "framer-motion";
 
-const SKILLS_TOP = ["C++", "PYTHON", "JAVA", "JAVASCRIPT", "C", "TYPESCRIPT"];
-const SKILLS_BOTTOM = ["NEXT.JS", "REACT", "FASTAPI", "GIT", "VERCEL", "TAILWIND"];
+const SKILLS_LANGUAGES = ["C++", "Python", "Java", "JavaScript", "TypeScript", "C"];
+const SKILLS_FRAMEWORKS = ["React", "Next.js", "FastAPI", "Git", "Vercel", "Tailwind"];
 
 export default function Skills() {
   return (
-    <section className="py-24 bg-[#050505] overflow-hidden border-b border-white/5 relative z-10">
-      <div className="flex flex-col gap-10">
-        {/* Row 1: Moving Left */}
-        <MarqueeItem items={SKILLS_TOP} direction="left" speed={20} />
+    <section className="py-20 md:py-32 bg-white border-y border-gray-200 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
         
-        {/* Row 2: Moving Right */}
-        <MarqueeItem items={SKILLS_BOTTOM} direction="right" speed={20} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+          
+          {/* Languages */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-6">Languages</h3>
+            <div className="flex flex-wrap gap-3">
+              {SKILLS_LANGUAGES.map((skill) => (
+                <motion.span
+                  key={skill}
+                  whileHover={{ scale: 1.05 }}
+                  className="px-4 py-2 bg-gray-100 text-black rounded-full text-sm font-medium hover:bg-gray-200 transition-colors cursor-default"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Frameworks & Tools */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <h3 className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-6">Frameworks & Tools</h3>
+            <div className="flex flex-wrap gap-3">
+              {SKILLS_FRAMEWORKS.map((skill) => (
+                <motion.span
+                  key={skill}
+                  whileHover={{ scale: 1.05 }}
+                  className="px-4 py-2 bg-gray-100 text-black rounded-full text-sm font-medium hover:bg-gray-200 transition-colors cursor-default"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+
+        </div>
+
       </div>
     </section>
-  );
-}
-
-function MarqueeItem({ items, direction, speed }: { items: string[], direction: "left" | "right", speed: number }) {
-  return (
-    <div className="flex overflow-hidden whitespace-nowrap mask-linear-fade">
-      <motion.div
-        className="flex gap-16 md:gap-32 pr-16 md:pr-32"
-        initial={{ x: direction === "left" ? "0%" : "-50%" }}
-        animate={{ x: direction === "left" ? "-50%" : "0%" }}
-        transition={{
-          duration: speed,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-      >
-        {/* Render the list twice to ensure seamless looping */}
-        {[...items, ...items].map((item, idx) => (
-          <span
-            key={idx}
-            className="text-6xl md:text-8xl font-bold tracking-tighter text-neutral-800 hover:text-neutral-100 transition-colors duration-500 cursor-default"
-            // Adding a text stroke effect for that 'hollow' look
-            style={{ 
-                WebkitTextStroke: "1px rgba(255,255,255,0.1)",
-            }}
-          >
-            {item}
-          </span>
-        ))}
-      </motion.div>
-    </div>
   );
 }

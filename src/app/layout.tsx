@@ -1,13 +1,22 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll"; // <--- Import
+import SmoothScroll from "@/components/SmoothScroll";
 
-const inter = Inter({ subsets: ["latin"] });
+const instrumentSans = Instrument_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Laksh Varma", // Updated Title
-  description: "Portfolio of Laksh Varma, specialized in Systems & Web Architecture.",
+  title: "Laksh Varma | Systems & Web Architecture",
+  description: "Computer Engineering student building efficient and beautiful software.",
+  openGraph: {
+    title: "Laksh Varma",
+    description: "Computer Engineering student building efficient and beautiful software.",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f5f5f7",
+  userScalable: true,
 };
 
 export default function RootLayout({
@@ -16,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-[#050505] text-white antialiased`}>
-        <SmoothScroll /> {/* <--- Add this here */}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${instrumentSans.className} bg-white text-black antialiased`}>
+        <SmoothScroll />
         {children}
       </body>
     </html>
